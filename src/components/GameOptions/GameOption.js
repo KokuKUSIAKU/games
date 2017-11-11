@@ -1,7 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
-import OptionCard from "./OptionCard"; 
-import OPTIONS from "./constants"; 
 import SimpleOption from "./SimpleOption"; 
 import LargeOption from "./LargeOption"; 
 

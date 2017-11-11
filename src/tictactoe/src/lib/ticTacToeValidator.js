@@ -3,7 +3,7 @@ import Validator from "./Validator";
 
 function isEmptyField({row,column}) {
   var board = store.getState().boards;
-  //console.log(board);
+ 
   try { 
     return !board[row][column]; 
   }catch(e) {

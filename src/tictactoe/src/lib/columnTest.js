@@ -11,7 +11,6 @@ function getStateBoards() {
 }
 
 function columnTest({ row, column }) {
-
   var ln, board,refValue, refValueOwner, cells, checkList = [];
   board = getStateBoards();
   refValue = board[row][column];
@@ -24,7 +23,6 @@ function columnTest({ row, column }) {
     throw TypeError("Unable to convert row or column arguments into safe integer");
   }
 
-  
   if(!refValue) {
     throw("Reference value undefined. Make sure you update the state before");
   }

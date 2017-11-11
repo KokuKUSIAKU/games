@@ -18,6 +18,6 @@ const defaultState = {
     }
   ]
 };
-// applyMiddleware(logger)
+// applyMiddleware(logger) for development purpose 
 const store = createStore(rootReducer, defaultState, applyMiddleware(logger));
 export default store; 

@@ -16,8 +16,7 @@ class StartButton extends React.Component {
     let ctx = this;
     let _button = document.getElementById("start-bt");
 
-    let clickHandler = function clickHandler() {
-
+    var clickHandler = function clickHandler() {
       if(ctx.state.initialsed) {
         ctx.props.dispatch({
           type:"RESET-BOARD"
@@ -29,13 +28,12 @@ class StartButton extends React.Component {
           initialsed: true
         });
       }
-      // pop message here Yes and No case 
 
       ctx.props.initiator();
-
     };
+
     _button.addEventListener("click", clickHandler);
-    // _button.addEventListener("click", ctx.props.initiator,{once:true});
+
   }
 
   render() {
@@ -46,6 +44,5 @@ class StartButton extends React.Component {
 StartButton.propTypes = {
   initiator: PropTypes.func.isRequired,
 };
-
 
 export default connect()(StartButton); 

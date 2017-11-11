@@ -6,13 +6,14 @@ function Person(name) {
 }
 
 Person.prototype = new Player;
+
 Person.prototype.constructor = Person;
+
 Person.prototype.select = function (requestor, gameBoard) {
   const ctx = this;
 
   function clickHandler(e) {
     var  {row, column} = e.target.dataset;
-    console.log("row", row, "column", column);
     if( row && column ) {
       ctx.send(
         MESSAGE.PLAYED, requestor, { row, column}

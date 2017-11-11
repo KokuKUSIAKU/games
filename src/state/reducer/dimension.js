@@ -4,6 +4,7 @@ function dimension(state = DEFAULT_DIMENSION, action){
   if( action.type === "LARGE"){
     return action.dimension;
   }
+  
   return state; 
 }
 

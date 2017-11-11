@@ -44,10 +44,3 @@ function pDiagonalTest({ row, column }) {
 }
 
 export default pDiagonalTest;
-
-/*
-  /* if (index <= row) { 
-     // console.log("index",index, row, _row, _row[column + row - index]);
-      return _row[column + row - index]; 
-    }
-   // else { return _row[column + index - row]; }*/
