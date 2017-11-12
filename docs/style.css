@@ -1,13 +1,15 @@
 #game-options {
-  display: flex;
+  display: flex; }
+
+.game-options {
+  color: white;
   margin: auto;
-  width: 80%;
-  color: white; }
-  #game-options .card {
+  width: 80%; }
+  .game-options .card {
     min-height: 300px; }
-  #game-options .card-body {
+  .game-options .card-body {
     display: flex; }
-  #game-options .card-text {
+  .game-options .card-text {
     display: flex;
     margin: auto;
     font-size: 21px; }
