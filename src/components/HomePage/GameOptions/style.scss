@@ -1,0 +1,17 @@
+#game-options{
+  display:flex; 
+  margin:auto; 
+  width:80%;
+  color:rgb(255,255,255);
+  .card{
+    min-height: 300px;
+  }
+  .card-body {
+    display:flex;
+  }
+  .card-text{
+    display: flex;
+    margin:auto; 
+    font-size: 21px;
+  }
+}

@@ -1,14 +1,13 @@
 import React from "react";
 import { render } from "react-dom";
-import LandingPage from "./views/LandingPage";
-console.log("start");
 
-if (process.env.ENV !== "production") {
-  console.log('working in dev');
-}
+import HOME from "./components/HomePage";
+
 var app = document.getElementById("app");
 render(
-  <LandingPage />,
+  <main id="main">
+    <HOME/>
+  </main>,
   app
 );
 
