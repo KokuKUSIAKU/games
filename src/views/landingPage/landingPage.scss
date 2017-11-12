@@ -1,0 +1,18 @@
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #128732;
+
+#landing-page {
+  box-sizing: border-box;
+  background-color:rgba(1, 1, 75, 0.21);
+  color: $primary-color;
+  display:flex; 
+  font: 100% $font-stack; 
+  height: 100vh;
+
+  .landing-page-header{
+    margin:auto; 
+  }
+}
+
+
+

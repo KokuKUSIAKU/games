@@ -1,0 +1,24 @@
+#game-options {
+  display: flex;
+  margin: auto;
+  width: 80%;
+  color: white; }
+  #game-options .card {
+    min-height: 300px; }
+  #game-options .card-body {
+    display: flex; }
+  #game-options .card-text {
+    display: flex;
+    margin: auto;
+    font-size: 21px; }
+#home-page {
+  background-color: #020e49;
+  color: #707368;
+  display: flex;
+  font: 50px Helvetica, sans-serif;
+  height: 100vh; }
+  #home-page .home-content {
+    display: flex;
+    margin: auto; }
+
+/*# sourceMappingURL=style.css.map*/
