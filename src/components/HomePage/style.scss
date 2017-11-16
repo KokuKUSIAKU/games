@@ -1,5 +1,5 @@
 $font-stack:    Helvetica, sans-serif;
-$primary-color: #707368;
+$primary-color: #FFFFFF;
 
 #home-page {
   background-color:rgb(2, 14, 73);
@@ -7,9 +7,6 @@ $primary-color: #707368;
   display: flex; 
   font: 50px $font-stack;
   height: 100vh; 
-  .home-content {
-    display: flex; 
-    margin:auto; 
-  }
+
   
 }

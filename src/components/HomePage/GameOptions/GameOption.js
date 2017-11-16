@@ -13,7 +13,3 @@ const GameOptionComponent = () => (
 );
 
 export default GameOptionComponent; 
-/*
-    <OptionCard option={OPTIONS.simple} />
-    <OptionCard option={OPTIONS.large} />
-*/
