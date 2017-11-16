@@ -1,14 +1,12 @@
 import React from "react";
 import { render } from "react-dom";
+import App from "./App";
 
-import HOME from "./components/HomePage";
-
-var app = document.getElementById("app");
 render(
   <main id="main">
-    <HOME/>
+    <App/>
   </main>,
-  app
+  document.getElementById("app")
 );
 
 
