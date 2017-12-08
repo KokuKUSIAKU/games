@@ -1,3 +1,16 @@
-.app-container{
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #FFFFFF;
+
+#app-container{
+  background-color:rgb(2, 14, 73);
+  color: $primary-color;
   display: flex;
+  font: 50px $font-stack;
+  height: 100vh; 
+
+  .game-board{
+    display: flex columns; 
+    margin: auto; 
+  }
 }
+

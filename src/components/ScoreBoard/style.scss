@@ -1,0 +1,15 @@
+#score-board{
+  display: flex; 
+  font-size:16px;
+  border:1px solid red; 
+
+  .player-board{
+    display: flex;
+
+    .player-name, .player-score{
+      display: flex; 
+      margin:5px;
+    }
+    
+  }
+}

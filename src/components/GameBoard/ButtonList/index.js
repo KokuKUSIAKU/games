@@ -1,18 +1,18 @@
 import React from "react";
 import Button from "../Button";
+import PropTypes from "prop-types";
 
-const ButtonList = ({ dim, row }) => (
+const ButtonList = ({ board, row }) => (
   <div className="cards">
-    <ul className="card-list"
-      data-row={row}>
-      {
-        Array(dim).fill(undefined).map(
-          (val, index) => <li key={index}>
-            <Button row={row} column={index} />
-          </li>
-        )
-      }
+    <ul className="card-list">
+      {board.map((bt, index) => <li  key={index}><Button content={bt} row={row} column={index} /></li>)}
     </ul>
   </div>
 );
+
+ButtonList.PropTypes = {
+  board:PropTypes.array.isRequired,
+  row:PropTypes.number.isRequired, 
+}; 
+
 export default ButtonList; 

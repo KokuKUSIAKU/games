@@ -1,13 +1,14 @@
 import React from "react";
-import { createStore } from "redux";
-import reducer from "./reducer";
+import {applyMiddleware, createStore } from "redux";
+import logger from "redux-logger";
+import rootReducer from "./reducer";
 import {DEFAULT_DIMENSION, buildGameBoard} from "./gameBoard"; 
 
 const defaultState = {
   dimension:DEFAULT_DIMENSION,
-  board:buildGameBoard, 
+  boards:buildGameBoard(), 
+  players:[]
 };
-
-const store = createStore(reducer, defaultState);
-
+// applyMiddleware(logger)
+const store = createStore(rootReducer, defaultState, applyMiddleware(logger));
 export default store; 
