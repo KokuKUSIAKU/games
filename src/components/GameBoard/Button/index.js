@@ -1,18 +1,28 @@
+/*eslint-disable */
 import React from "react";
+import PropTypes from "prop-types";
 import store from "../../../state";
-import play from "./action";
+import { connect } from "react-redux";
+import {DBBezier, SQBezier} from "../../graphics";
+/*eslint-enable*/
 
-const Button = ({ row, column }) => (
+function clickHandler(e, func) {
+  e.preventDefault(); 
+  func(...[].slice.call(arguments,2));
+}
+//onClick={clickHandler.bind(this, event, dispatch, {type:"PLAYED",postion:{row, column }})}
+
+var Button = ({content, row, column}) => (
   <button className="game-button"
-    row={row}
-    column={column}
-    onClick={buttonController}>
+    data-row={row}
+    data-column={column}>
+    {!content?null:content.owner =="YOU"?<DBBezier/>:<SQBezier/>}
   </button>
 );
 
-const buttonController = (e) => {
-  e.preventDefault(); 
-  store.dispatch(play(e.target.attributes)); 
-}; 
+Button.propTypes = {
+  row:PropTypes.number.isRequired, 
+  column:PropTypes.number.isRequired
+};
 
 export default Button; 
