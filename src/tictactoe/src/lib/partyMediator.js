@@ -93,9 +93,76 @@ PartyMediator.prototype.send = function (message, receiver) {
 };
 
 PartyMediator.prototype.excute = function (message, from) {
-  // change here also to use mapping something like 
-  // onMESSAGEFROM
+
   let ctx = this;
+  let messageHandlerStack = [];
+
+  messageHandlerStack.include = function include(handler) {
+    this.push(handler);
+  };
+
+  // excuteMessageFrom... share same pattern as the partyMediator itself
+  // they may have their own messageHandler stack !!
+  function excuteMessageFromReferee(requestor, message) {
+
+    if (requestor == ctx.referee) {
+      switch (message) {
+        case MESSAGE.REJECT:
+          Promise.resolve()
+            .then(() => dispatchUpdateScore())
+            .then(() => makePlayNextPlayer());
+          break;
+        case MESSAGE.ACCEPT:
+          makePlayNextPlayer();
+          break;
+        default:
+          throw ("errror");
+      }
+    }
+
+    return ctx;
+  }
+
+  function excuteMessageFromValidator(requestor, message) {
+
+    if (requestor == ctx.validator) {
+      switch (message) {
+        case MESSAGE.ACCEPT:
+          store.dispatch({
+            type: "UPDATE",
+            position: arguments[2],
+            owner: ctx.currentPlayer.name
+          });
+          ctx.send(MESSAGE.VALIDATE, ctx.referee, arguments[2]);
+          break;
+        case MESSAGE.REJECT:
+          ctx.send(MESSAGE.PLAY, ctx.currentPlayer, ctx.view);
+          break;
+        default:
+          throw ("Error : can't handle ");
+      }
+    }
+
+    return ctx;
+
+  }
+
+  function excuteMessageFromPlayer(requestor, message) {
+
+    if (message === MESSAGE.PLAYED && ctx.players.includes(from)) {
+      ctx.send(MESSAGE.VALIDATE, ctx.validator, arguments[2]);
+    }
+
+    return ctx;
+  }
+
+  function dispatchUpdateScore() {
+    return store.dispatch({
+      type: "UPDATE-SCORE",
+      player: ctx.currentPlayer,
+      additionalScore: 1
+    });
+  }
 
   function makePlayNextPlayer() {
     let nextIndex = ctx.players.indexOf(ctx.currentPlayer);
@@ -110,45 +177,13 @@ PartyMediator.prototype.excute = function (message, from) {
     }
   }
 
-  if (from === this.referee) {
-    switch (message) {
-      case MESSAGE.REJECT:
-        // if current player realise  winning combinaison, opposite is reject below
-        // increase current player score, 
-        // animate the winning combination 
-        alert(`${this.currentPlayer.name} wins, Bravo!`);
-        store.dispatch({
-          type:"UPDATE-SCORE", 
-          player:this.currentPlayer,
-          additionalScore:1
-        });
+  messageHandlerStack.include(excuteMessageFromReferee);
+  messageHandlerStack.include(excuteMessageFromValidator);
+  messageHandlerStack.include(excuteMessageFromPlayer);
 
-        makePlayNextPlayer();
-        break;
-      case MESSAGE.ACCEPT:
-        makePlayNextPlayer();
-        break;
-    }
-  }
+  // loop through all hanlders to excute the message 
+  messageHandlerStack.forEach(handler => handler(from, message, ...[].slice.call(arguments, 2)));
 
-  else if (from === this.validator) {
-    switch (message) {
-      case MESSAGE.ACCEPT:
-        store.dispatch({
-          type: "UPDATE",
-          position: arguments[2],
-          owner: this.currentPlayer.name
-        });
-        this.send(MESSAGE.VALIDATE, this.referee, arguments[2]);
-        break;
-      case MESSAGE.REJECT:
-        console.log("rejection");
-        this.send(MESSAGE.PLAY, this.currentPlayer, this.view);
-        break;
-    }
-  } else if (message === MESSAGE.PLAYED && this.players.includes(from)) {
-    this.send(MESSAGE.VALIDATE, this.validator, arguments[2]);
-  }
 };
 
 PartyMediator.prototype.init = function initiateParty() {

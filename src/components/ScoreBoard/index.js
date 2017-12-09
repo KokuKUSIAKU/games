@@ -9,11 +9,11 @@ import style from "./style.scss";
 
 var ScoreBoard = ({ players }) => (
   <article id="score-board">
-    <section className="player-board">
+    <section id="score-first" className="player-board">
       <PlayerName {...players[0]} />
       <Score {...players[0]} />
     </section>
-    <section className="player-board">
+    <section id="score-second" className="player-board">
       <PlayerName {...players[1]} />
       <Score {...players[1]} />
     </section>

@@ -1,15 +1,21 @@
 #score-board{
   display: flex; 
+  flex-wrap: nowrap;
   font-size:16px;
   border:1px solid red; 
 
   .player-board{
     display: flex;
+    border:1px solid white; 
 
     .player-name, .player-score{
       display: flex; 
       margin:5px;
     }
-    
+  }
+
+  #score-second{
+    align-content: flex-end;
+    border:5px solid green;
   }
 }
