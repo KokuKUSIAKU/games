@@ -1,6 +1,5 @@
 function players(state = [], action) {
   var newState, index;
-  
   switch (action.type) {
     case "ADD-PLAYER":
       return [...state, action.newPlayer];
@@ -11,7 +10,6 @@ function players(state = [], action) {
       return newState; 
     default:
       return state;
-
   }
 }
 

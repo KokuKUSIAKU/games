@@ -21,11 +21,9 @@ Person.prototype.select = function (requestor, gameBoard) {
     } else {
       throw("Game Board button has no data-row or data-column attribute"); 
     }
-
   }
 
   gameBoard.view.addEventListener("click", clickHandler, { once: true });
-
 };
 
 export default Person; 

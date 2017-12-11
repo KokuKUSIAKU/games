@@ -24,7 +24,7 @@ function columnTest({ row, column }) {
   }
 
   if(!refValue) {
-    throw("Reference value undefined. Make sure you update the state before");
+    throw new ReferenceError("Reference value undefined. Make sure you update the state before");
   }
 
   cells = filterCells(board.map(_row => _row[column]).slice(row - count < 0 ? 0 : row - count + 1, row + count));
