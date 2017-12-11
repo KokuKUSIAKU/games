@@ -1,21 +1,8 @@
-//import update from "../state/update";
+
 import store from "../../../state";
-/****************************************
- * Match and PartyMediator
- ***************************************/
+import MESSAGE from "../constants";
+
 const PLAY_LIMIT = Math.pow(store.getState().dimension, 2);
-
-const MESSAGE = {
-  PLAY: "PLAY",
-  PLAYED: "PLAYED",
-  CONTINUE: "CONTINUE",
-  STOP: "STOP",
-  WINNED: "WINNED",
-  ACCEPT: "ACCEPT",
-  REJECT: "REJECT",
-  VALIDATE: "VALIDATE"
-};
-
 
 function PartyMediator() {
   const ctx = this;

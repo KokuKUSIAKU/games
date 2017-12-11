@@ -7,10 +7,15 @@ import TicTacToeReferee from "./src/lib/TicTacToeReferee";
 import store from "../state";
 
 function tictactoe() {
-  var gameBoard = {
-    view: document.getElementById("game"),
-    dimension: store.getState().dimension
-  };
+  try {
+    var gameBoard = {
+      view: document.getElementById("game"),
+      dimension: store.getState().dimension
+    };
+  } catch(e) {
+    throw new ReferenceError(`Reference Error in tic-tac-toe index file ${e.message}`);
+  }
+
   var person = new Person("YOU");
   var computer = new Computer("COMPUTER");
   var tictactoeMediator = new PartyMediator();

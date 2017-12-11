@@ -24,7 +24,7 @@ function lineTest({ row, column }) {
   }
 
   if(!refValue) {
-    throw("Reference value undefined. Make sure you update the state before");
+    throw new ReferenceError("Reference value undefined. Make sure you update the state before");
   }
 
   cells = filterCells(board[row].slice(column - count < 0 ? 0 : column - count + 1, column + count));

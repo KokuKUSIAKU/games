@@ -24,7 +24,7 @@ function pDiagonalTest({ row, column }) {
   }
   
   if(!refValue) {
-    throw("Reference value undefined. Make sure you update the state before");
+    throw new ReferenceError("Reference value undefined. Make sure you update the state before");
   }
 
   cells = board.map(function (_row, index) {
