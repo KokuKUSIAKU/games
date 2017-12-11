@@ -6,12 +6,12 @@ import styles from "./style.scss";
 import store from "../../../state";
 /*eslint-enable */
 
-const Board = ({boards}) => {
+const Board = ({ boards }) => {
   return (
     <div className="game-wrapper">
-    <section id="game">
-      {boards.map((board, index) => <ButtonList key={index} board={board} row={index}/>)}
-    </section>
+      <section id="game">
+        {boards.map((board, index) => <ButtonList key={index} board={board} row={index} />)}
+      </section>
     </div>
   );
 };

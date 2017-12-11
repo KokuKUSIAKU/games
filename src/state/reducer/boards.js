@@ -1,7 +1,5 @@
 import React from "react";
-import dimension from "./dimension";
 import { buildGameBoard } from "../gameBoard";
-//import store from "../index";
 
 function updateBoard(state = [], action) {
   if (action.type == "UPDATE") {
@@ -26,7 +24,7 @@ function boards(state = [], action) {
     case "UPDATE":
       return updateBoard(state, action);
     case "RESET-BOARD": 
-      return buildGameBoard(state.length); // return initialState; 
+      return buildGameBoard(state.length); 
     case "SIMPLE":
     case "LARGE":
       return [ ...initialiseBoard(action)];

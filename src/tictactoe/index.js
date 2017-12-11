@@ -6,11 +6,7 @@ import TicTacToeValidator from "./src/lib/TicTacToeValidator";
 import TicTacToeReferee from "./src/lib/TicTacToeReferee";
 import store from "../state";
 
-// split the game initialistation
-// and the store update with player features 
-
 function tictactoe() {
-  console.log("tictactoe fired");
   var gameBoard = {
     view: document.getElementById("game"),
     dimension: store.getState().dimension
@@ -30,30 +26,7 @@ function tictactoe() {
     3: { type: "REFEREE", participant: TicTacToeReferee },
     4: { type: "VIEW", participant: gameBoard }
   });
-  
-  /*
-  store.dispatch({
-    type: "ADD-PLAYER",
-    newPlayer: {
-      name: person.name, 
-      score:0,
-    }
-  }); 
-
-  store.dispatch({
-    type: "ADD-PLAYER",
-    newPlayer: {
-      name: computer.name, 
-      score:0,
-    }
-  });
-
-*/
-  /* // move to view logic 
-   function startButtonClickHandler() {
-     Mediator.init();
-   }
- */
+    
   Mediator.init();
 
 }

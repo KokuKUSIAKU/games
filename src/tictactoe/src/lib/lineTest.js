@@ -1,6 +1,7 @@
 import store from "../../../state";
 
 var count = 3; 
+
 function filterCells(cells) {
   return cells.filter(cell => cell);
 }

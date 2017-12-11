@@ -11,6 +11,7 @@ function mapStateToProps(state) {
     boards:state.boards
   };
 }
+
 const GameBoard = connect(
   mapStateToProps
 )(Board);

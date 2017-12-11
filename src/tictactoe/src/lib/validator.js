@@ -3,6 +3,7 @@ import { MESSAGE } from "./PartyMediator";
 
 function Validator() {
   var _rules = [];
+
   Object.defineProperty(this, "rules", {
     set: function setRules(rules) {
       _rules.push(...rules);
@@ -23,6 +24,7 @@ Validator.prototype.send = function send(message, receiver) {
 Validator.prototype.check = function check(rules, position) {
   return rules.every(rule => rule(position));
 };
+
 Validator.prototype.VALIDATE = function validate(requestor,position) {
   let _result = this.check(this.rules, position);
   if (_result) { this.send(MESSAGE.ACCEPT, requestor, position); }

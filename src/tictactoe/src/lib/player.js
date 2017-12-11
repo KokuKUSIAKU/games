@@ -1,11 +1,13 @@
 function Player(name) {
   var _name = name;
   var _symbol = "";
+
   Object.defineProperty(this, "symbol",
     {
       set: function setSymbol(symbol) { _symbol = symbol; },
       get: function getSymbol() { return _symbol; }
     });
+
   Object.defineProperty(this, "name",
     {
       get: function getName() { return _name; }
