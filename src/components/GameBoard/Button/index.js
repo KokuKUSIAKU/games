@@ -6,12 +6,6 @@ import { connect } from "react-redux";
 import {DBBezier, SQBezier} from "../../graphics";
 /*eslint-enable*/
 
-function clickHandler(e, func) {
-  e.preventDefault(); 
-  func(...[].slice.call(arguments,2));
-}
-//onClick={clickHandler.bind(this, event, dispatch, {type:"PLAYED",postion:{row, column }})}
-
 var Button = ({content, row, column}) => (
   <button className="game-button"
     data-row={row}

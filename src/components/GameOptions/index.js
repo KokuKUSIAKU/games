@@ -1,4 +1,3 @@
-// add feature like side information when over information here 
 /* eslint-disable*/
 import React from "react";
 import GameOptionComponent from "./GameOption";

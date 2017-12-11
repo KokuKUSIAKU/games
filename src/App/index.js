@@ -1,11 +1,10 @@
 import React from "react";
-import HOME from "../components/HomePage";
-import GameBoard from "../components/GameBoard";
-import GameOptions from "../components/GameOptions";
-import ScoreBoard from "../components/ScoreBoard";
-import StartButton from "../components/StartButton";
-import Welcome from "../components/Welcome";
 import { Provider } from "react-redux";
+
+import HOME from "../components/HomePage";
+import GameOptions from "../components/GameOptions";
+import Welcome from "../components/Welcome";
+import ParyLayout from "../components/PartyLayout";
 import store from "../state";
 import styles from "./style.scss";
 
@@ -22,24 +21,17 @@ class App extends React.Component {
   handleClick() {
     Promise.resolve()
       .then(() => {
-        let gameModule = require("../tictactoe");
-        let gameController = gameModule.default;
-
         this.setState({
           activeView: (
             <Provider store={store}>
-              <div className="game-board">
-                <ScoreBoard/>
-                <GameBoard />
-                <StartButton initiator={gameController} />
-              </div>
+              <ParyLayout />
             </Provider>)
         });
-        this.handleClick = function cancelHandleClick() {};
+        this.handleClick = function cancelHandleClick() { };
       })
       .catch((e) => {
         alert("error when mounting gameBoard");
-        this.handleClick = function cancelHandleClick() {};
+        this.handleClick = function cancelHandleClick() { };
         throw (e);
       });
   }
@@ -49,9 +41,9 @@ class App extends React.Component {
         activeView: <Welcome />
       }))
       .then(
-        setTimeout( () => this.setState({
-          activeView:<GameOptions/>
-        }),3000)
+      setTimeout(() => this.setState({
+        activeView: <GameOptions />
+      }), 3000)
       );
   }
   render() {

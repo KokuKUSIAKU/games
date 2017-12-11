@@ -8,9 +8,11 @@ import store from "../../../state";
 
 const Board = ({boards}) => {
   return (
+    <div className="game-wrapper">
     <section id="game">
       {boards.map((board, index) => <ButtonList key={index} board={board} row={index}/>)}
     </section>
+    </div>
   );
 };
 

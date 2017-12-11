@@ -30,7 +30,8 @@ function tictactoe() {
     3: { type: "REFEREE", participant: TicTacToeReferee },
     4: { type: "VIEW", participant: gameBoard }
   });
-
+  
+  /*
   store.dispatch({
     type: "ADD-PLAYER",
     newPlayer: {
@@ -47,7 +48,7 @@ function tictactoe() {
     }
   });
 
-
+*/
   /* // move to view logic 
    function startButtonClickHandler() {
      Mediator.init();
