@@ -25,6 +25,8 @@ function boards(state = [], action) {
   switch (action.type) {
     case "UPDATE":
       return updateBoard(state, action);
+    case "RESET-BOARD": 
+      return buildGameBoard(state.length); // return initialState; 
     case "SIMPLE":
     case "LARGE":
       return [ ...initialiseBoard(action)];

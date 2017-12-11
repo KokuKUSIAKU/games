@@ -3,7 +3,7 @@ import style from "./style.scss";
 
 const WelcomeComponent = () => (
   <article id="welcome-message">
-    <p>Welcome</p>
+    <p>Welcome to Tic Tac Toe Game</p>
   </article>
 );
 

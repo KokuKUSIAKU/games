@@ -166,12 +166,15 @@ PartyMediator.prototype.excute = function (message, from) {
 
   function makePlayNextPlayer() {
     let nextIndex = ctx.players.indexOf(ctx.currentPlayer);
+  
     if (nextIndex < ctx.players.length - 1) {
       ctx.currentPlayer = ctx.players[nextIndex + 1];
     } else {
       ctx.currentPlayer = ctx.players[0];
     }
+    
     ctx.count++;
+    
     if (ctx.count < PLAY_LIMIT) {
       ctx.send(MESSAGE.PLAY, ctx.currentPlayer, ctx.view);
     }

@@ -1,6 +1,9 @@
+
+  .test {
+    border:1px solid green;
+  }
+
 #score-board{
-  display: flex; 
-  flex-wrap: nowrap;
   font-size:16px;
   border:1px solid red; 
 
@@ -10,7 +13,11 @@
 
     .player-name, .player-score{
       display: flex; 
+      font-size: 20px; 
       margin:5px;
+    }
+    .player-score{
+      width:100px; 
     }
   }
 
