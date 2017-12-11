@@ -32,34 +32,39 @@ function PartyMediator() {
     referee: null,
     view: null
   };
-  //should not be public 
+
   this.count = 1;
 
   Object.defineProperty(this, "players", { get: function getPlayers() { return _participants.players; } });
+
   Object.defineProperty(this, "currentPlayer",
     {
       get: function getCurrentPlayers() { return _currentPlayer; },
       set: function setCurrentPlayers(player) { _currentPlayer = player; }
     });
+
   Object.defineProperty(this, "validator",
     {
       get: function getValidator() { return _participants.validator; },
       set: function setValidor(validator) { _participants.validator = validator; }
     });
+
   Object.defineProperty(this, "view",
     {
       get: function getView() { return _participants.view; },
       set: function setView(view) { _participants.view = view; }
     });
+
   Object.defineProperty(this, "referee",
     {
       get: function getReferee() { return _participants.referee; },
       set: function setReferee(referee) { _participants.referee = referee; }
     });
+
   Object.defineProperty(this, "add",
     {
       set: function addParticipant({ type, participant }) {
-        // set error message here for instance when type doesn't exist
+        if(!FUNCTION_REGISTRY[type]){ throw new TypeError(`The ${type} type can't be added to the participants registry`)}
         FUNCTION_REGISTRY[type].call(this, participant);
       }
     });
@@ -93,7 +98,6 @@ PartyMediator.prototype.send = function (message, receiver) {
 };
 
 PartyMediator.prototype.excute = function (message, from) {
-
   let ctx = this;
   let messageHandlerStack = [];
 
@@ -101,10 +105,8 @@ PartyMediator.prototype.excute = function (message, from) {
     this.push(handler);
   };
 
-  // excuteMessageFrom... share same pattern as the partyMediator itself
-  // they may have their own messageHandler stack !!
+ 
   function excuteMessageFromReferee(requestor, message) {
-
     if (requestor == ctx.referee) {
       switch (message) {
         case MESSAGE.REJECT:
@@ -116,7 +118,7 @@ PartyMediator.prototype.excute = function (message, from) {
           makePlayNextPlayer();
           break;
         default:
-          throw ("errror");
+          throw new TypeError("Action request from Referee can't be handle by the listener");
       }
     }
 
@@ -124,7 +126,6 @@ PartyMediator.prototype.excute = function (message, from) {
   }
 
   function excuteMessageFromValidator(requestor, message) {
-
     if (requestor == ctx.validator) {
       switch (message) {
         case MESSAGE.ACCEPT:
@@ -139,7 +140,7 @@ PartyMediator.prototype.excute = function (message, from) {
           ctx.send(MESSAGE.PLAY, ctx.currentPlayer, ctx.view);
           break;
         default:
-          throw ("Error : can't handle ");
+          throw new TypeError("Action request from Validator can't be handle by the listener");
       }
     }
 
@@ -148,7 +149,6 @@ PartyMediator.prototype.excute = function (message, from) {
   }
 
   function excuteMessageFromPlayer(requestor, message) {
-
     if (message === MESSAGE.PLAYED && ctx.players.includes(from)) {
       ctx.send(MESSAGE.VALIDATE, ctx.validator, arguments[2]);
     }
@@ -166,15 +166,15 @@ PartyMediator.prototype.excute = function (message, from) {
 
   function makePlayNextPlayer() {
     let nextIndex = ctx.players.indexOf(ctx.currentPlayer);
-  
+
     if (nextIndex < ctx.players.length - 1) {
       ctx.currentPlayer = ctx.players[nextIndex + 1];
     } else {
       ctx.currentPlayer = ctx.players[0];
     }
-    
+
     ctx.count++;
-    
+
     if (ctx.count < PLAY_LIMIT) {
       ctx.send(MESSAGE.PLAY, ctx.currentPlayer, ctx.view);
     }
@@ -188,6 +188,7 @@ PartyMediator.prototype.excute = function (message, from) {
   messageHandlerStack.forEach(handler => handler(from, message, ...[].slice.call(arguments, 2)));
 
 };
+
 
 PartyMediator.prototype.init = function initiateParty() {
   this.currentPlayer = this.players[0];
