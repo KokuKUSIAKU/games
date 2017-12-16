@@ -1,0 +1,128 @@
+#game-options {
+  display: flex;
+  width: 90%;
+  margin: auto; }
+
+.game-options {
+  color: white;
+  margin: auto; }
+  .game-options .card {
+    min-height: 300px; }
+  .game-options .card-body {
+    display: flex; }
+  .game-options .card-text {
+    display: flex;
+    margin: auto;
+    font-size: 21px; }
+#welcome-message {
+  display: flex;
+  margin: auto; }
+#score-board {
+  font-size: 16px; }
+  #score-board .player-board {
+    display: flex; }
+    #score-board .player-board .player-name, #score-board .player-board .player-score {
+      display: flex;
+      font-size: 20px;
+      margin: 5px; }
+    #score-board .player-board .player-score {
+      width: 100px; }
+  #score-board #score-second {
+    align-content: flex-end; }
+#start-bt {
+  display: flex;
+  font-size: 20px;
+  height: 50px;
+  margin: 20px auto;
+  padding: 5px 10px; }
+.game-wrapper {
+  display: flex; }
+
+#game {
+  display: flex;
+  flex-direction: column;
+  margin: 25px auto; }
+  #game button {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%; }
+  #game .cards {
+    display: flex; }
+  #game li {
+    width: 50px;
+    height: 50px;
+    list-style: none; }
+  #game ul {
+    display: flex;
+    margin: 0;
+    padding: 0; }
+#party-layout {
+  width: 100%; }
+#ticdom-logo {
+  font-size: 40px;
+  letter-spacing: 4px;
+  font-weight: bold; }
+  #ticdom-logo .logo {
+    color: inherit; }
+  #ticdom-logo .dom {
+    color: darkblue; }
+#header-tags {
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: bold; }
+  #header-tags li {
+    display: flex;
+    list-style: none;
+    padding: 0 10px; }
+    #header-tags li div {
+      display: flex;
+      padding: 0 5px; }
+  #header-tags ul {
+    display: flex;
+    padding: 0;
+    margin: 0; }
+#features-coming {
+  align-items: center;
+  border: 3px solid darkblue;
+  display: flex;
+  font-size: 20px;
+  justify-content: center;
+  height: 150px;
+  width: 200px; }
+  #features-coming #flag {
+    color: darkblue;
+    position: absolute;
+    top: -10px;
+    left: -70px; }
+#page-header {
+  padding: 2rem;
+  position: relative; }
+  #page-header #features-coming {
+    position: absolute;
+    top: 0;
+    right: 15px; }
+body {
+  background-image: url(f484f950a2d262df4d0db83d8665555a.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+#app-container {
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  font: 50px Helvetica, sans-serif;
+  padding-top: 10px; }
+  #app-container #menu {
+    display: flex;
+    background-color: #020e49;
+    margin: 25px 0;
+    padding: 20px; }
+    #app-container #menu li {
+      display: flex;
+      font-size: 25px;
+      list-style: none;
+      padding: 0 10px;
+      margin: 0 10px; }
+
+/*# sourceMappingURL=style.css.map*/
