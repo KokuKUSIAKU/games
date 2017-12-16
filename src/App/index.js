@@ -1,10 +1,8 @@
+
 import React from "react";
 import { Provider } from "react-redux";
+import { GameOptions, Welcome, PartyLayout, PageHeader, Rules } from "../components";
 
-import HOME from "../components/HomePage";
-import GameOptions from "../components/GameOptions";
-import Welcome from "../components/Welcome";
-import ParyLayout from "../components/PartyLayout";
 import store from "../state";
 import styles from "./style.scss";
 
@@ -15,40 +13,54 @@ class App extends React.Component {
       activeView: null,
       options: null,
     };
-    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
+  mountGameBoard() {
+    Promise.resolve()
+      .then(() => this.setActiveView(GameOptions))
+      .then(() => {
+        let targetNode = document.getElementById("game-options");
+        targetNode.addEventListener("click", this.drawLayout.bind(this));
+      });
+  }
+
+  setActiveView(targetView) {
+    this.setState({
+      activeView: React.createElement(targetView)
+    });
+  }
+
+  drawLayout() {
     Promise.resolve()
       .then(() => {
         this.setState({
           activeView: (
             <Provider store={store}>
-              <ParyLayout />
+              <PartyLayout />
             </Provider>)
         });
-        this.handleClick = function cancelHandleClick() { };
       })
       .catch((e) => {
         alert("error when mounting gameBoard");
-        this.handleClick = function cancelHandleClick() { };
         throw (e);
       });
   }
+
   componentDidMount() {
-    Promise.resolve()
-      .then(() => this.setState({
-        activeView: <Welcome />
-      }))
-      .then(
-      setTimeout(() => this.setState({
-        activeView: <GameOptions />
-      }), 3000)
-      );
+    this.setState({
+      activeView: <Welcome />
+    });
   }
+
   render() {
     return (
-      <div id="app-container" onClick={this.handleClick.bind(this)}>
+      <div id="app-container">
+        <PageHeader />
+        <ul id="menu">
+          <li onClick={this.setActiveView.bind(this, Welcome)}>HOME</li>
+          <li onClick={this.mountGameBoard.bind(this)}>PLAY</li>
+          <li onClick={this.setActiveView.bind(this, Rules)}>RULES</li>
+        </ul>
         {this.state.activeView}
       </div>
     );

@@ -1,17 +1,32 @@
 $font-stack:    Helvetica, sans-serif;
 $primary-color: #FFFFFF;
 
+body{
+  background-image:url('../../public/image/image1.jpeg'); 
+  background-repeat: no-repeat; 
+  background-size: cover; 
+}
+
 #app-container{
-  background-color:rgb(2, 14, 73);
   color: $primary-color;
   display: flex;
+  flex-direction:column;
   font: 50px $font-stack;
-  height: 100vh; 
-  padding-top:100px;
+  padding-top:10px;
 
-  .game-board{
-    display: flex columns; 
-    margin: auto; 
+  #menu{
+    display: flex; 
+    background-color:rgb(2, 14, 73);
+    margin:25px 0;
+    padding:20px;
+
+    li{
+      display: flex;
+      font-size:25px;
+      list-style:none; 
+      padding:0 10px; 
+      margin:0 10px; 
+    }
   }
 }
 
