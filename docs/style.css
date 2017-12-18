@@ -47,11 +47,16 @@
           background-color: #020e49;
           color: white; }
 #start-bt {
+  border: 2px solid #020e49;
+  border-radius: 5px;
+  color: #020e49;
   display: flex;
   font-size: 20px;
   height: 50px;
   margin: 20px auto;
-  padding: 5px 10px; }
+  padding: 5px 10px;
+  justify-content: center;
+  width: 150px; }
 .game-wrapper {
   display: flex; }
 
