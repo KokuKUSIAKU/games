@@ -1,7 +1,14 @@
 
 import React from "react";
 import { Provider } from "react-redux";
-import { GameOptions, Welcome, PartyLayout, PageHeader, Rules } from "../components";
+import {
+  GameOptions,
+  Welcome,
+  PartyLayout,
+  PageHeader,
+  Rules,
+  Warning
+} from "../components";
 
 import store from "../state";
 import styles from "./style.scss";
@@ -62,6 +69,7 @@ class App extends React.Component {
           <li onClick={this.setActiveView.bind(this, Rules)}>RULES</li>
         </ul>
         {this.state.activeView}
+        <Warning />
       </div>
     );
   }
