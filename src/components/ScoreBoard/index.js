@@ -9,14 +9,18 @@ import style from "./style.scss";
 
 var ScoreBoard = ({ players }) => (
   <article id="score-board" className="container">
-    <div className="row justify-content-around test">
-      <section id="score-first" className="player-board col-sm-4">
-        <PlayerName {...players[0]} />
-        <Score {...players[0]} />
+    <div className="row no-gutters">
+      <section id="score-first" className="col-md-6">
+        <div className="player-board">
+          <PlayerName {...players[0]} />
+          <Score {...players[0]} />
+        </div>
       </section>
-      <section id="score-second" className="player-board col-sm-4">
-        <PlayerName {...players[1]} />
-        <Score {...players[1]} />
+      <section id="score-second" className="col-md-6">
+        <div className="player-board">
+          <PlayerName {...players[1]} />
+          <Score {...players[1]} />
+        </div>
       </section>
     </div>
   </article>

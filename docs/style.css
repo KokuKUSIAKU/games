@@ -15,20 +15,37 @@
     margin: auto;
     font-size: 21px; }
 #welcome-message {
-  display: flex;
-  margin: auto; }
+  margin: auto;
+  color: black; }
+  #welcome-message p {
+    font-size: 20px; }
 #score-board {
   font-size: 16px; }
-  #score-board .player-board {
-    display: flex; }
-    #score-board .player-board .player-name, #score-board .player-board .player-score {
-      display: flex;
-      font-size: 20px;
-      margin: 5px; }
-    #score-board .player-board .player-score {
-      width: 100px; }
   #score-board #score-second {
-    align-content: flex-end; }
+    justify-content: flex-end; }
+  #score-board #score-first, #score-board #score-second {
+    display: flex;
+    flex-wrap: nowrap; }
+    #score-board #score-first .player-board, #score-board #score-second .player-board {
+      display: flex;
+      background-color: #dddddd;
+      padding: 15px;
+      width: 300px; }
+      #score-board #score-first .player-board .player-name, #score-board #score-first .player-board .player-score, #score-board #score-second .player-board .player-name, #score-board #score-second .player-board .player-score {
+        font-size: 20px; }
+      #score-board #score-first .player-board .player-name, #score-board #score-second .player-board .player-name {
+        border-bottom: 5px double #020e49;
+        border-top: 5px double #020e49;
+        color: #020e49;
+        flex-basis: 150px;
+        padding: 5px 10px; }
+      #score-board #score-first .player-board .player-score, #score-board #score-second .player-board .player-score {
+        flex-basis: 150px;
+        margin-left: 15px;
+        color: #020e49; }
+        #score-board #score-first .player-board .player-score .pending-score, #score-board #score-second .player-board .player-score .pending-score {
+          background-color: #020e49;
+          color: white; }
 #start-bt {
   display: flex;
   font-size: 20px;
