@@ -124,6 +124,13 @@
     position: absolute;
     top: 0;
     right: 15px; }
+#waring {
+  background-color: #dddddd;
+  color: red;
+  font-size: 16px;
+  margin: 20px;
+  padding: 10px;
+  text-align: center; }
 body {
   background-image: url(f484f950a2d262df4d0db83d8665555a.jpeg);
   background-repeat: no-repeat;
