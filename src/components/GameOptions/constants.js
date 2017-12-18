@@ -2,12 +2,12 @@ const OPTIONS = {
   simple: {
     title: "Simple Version",
     text: "Choose 3x3 game board",
-    classOpt:"bg-success"
+    classOpt:"border border-success text-success"
   },
   large: {
     title: "Large Version",
     text: "Choose 6x6 game board",
-    classOpt:"bg-danger"
+    classOpt:"border border-danger text-danger"
   },
 };
 

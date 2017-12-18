@@ -1,20 +1,46 @@
-#score-board{
+$pad-vertical:5px; 
+$pad-horizontal:  10px; 
+$base-color:rgb(2, 14, 73);
+$border-double: 5px double $base-color; 
+
+#score-board{ 
   font-size:16px;
-
-  .player-board{
-    display: flex;
-
-    .player-name, .player-score{
-      display: flex; 
-      font-size: 20px; 
-      margin:5px;
-    }
-    .player-score{
-      width:100px; 
-    }
+  #score-second{
+    justify-content: flex-end;
   }
 
-  #score-second{
-    align-content: flex-end;
+  #score-first,#score-second{
+    display: flex;
+    flex-wrap: nowrap;
+
+    .player-board{
+      display: flex;
+      background-color:rgb(221,221,221);
+      padding:3*$pad-vertical;
+      width: 300px;
+
+      .player-name, .player-score{
+        font-size: 20px; 
+      }
+  
+      .player-name{
+        border-bottom: $border-double;
+        border-top: $border-double;
+        color: $base-color;
+        flex-basis: 150px;
+        padding: $pad-vertical $pad-horizontal;
+      }
+      
+      .player-score{
+        flex-basis: 150px;
+        margin-left:15px;
+        color: $base-color;
+
+        .pending-score{
+          background-color:$base-color;
+          color:rgb(255,255,255);
+        }
+      }
+    }   
   }
 }
