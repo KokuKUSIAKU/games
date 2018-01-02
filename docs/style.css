@@ -70,15 +70,18 @@
     padding: 0;
     width: 100%; }
   #game .cards {
-    display: flex; }
-  #game li {
-    width: 50px;
-    height: 50px;
-    list-style: none; }
-  #game ul {
-    display: flex;
-    margin: 0;
-    padding: 0; }
+    margin: 0; }
+    #game .cards .card-list {
+      display: flex;
+      padding: 0;
+      margin: 0; }
+      #game .cards .card-list li {
+        display: flex;
+        padding: 0;
+        margin: 0;
+        width: 50px;
+        height: 50px;
+        list-style: none; }
 #party-layout {
   width: 100%; }
 #ticdom-logo {

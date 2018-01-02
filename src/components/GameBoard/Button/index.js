@@ -10,7 +10,7 @@ var Button = ({content, row, column}) => (
   <button className="game-button"
     data-row={row}
     data-column={column}>
-    {!content?null:content.owner =="YOU"?<DBBezier/>:<SQBezier/>}
+    {!content?null:content.owner =="YOU"?<DBBezier/>:<SQBezier/>} 
   </button>
 );
 
