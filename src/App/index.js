@@ -69,7 +69,6 @@ class App extends React.Component {
           <li onClick={this.setActiveView.bind(this, Rules)}>RULES</li>
         </ul>
         {this.state.activeView}
-        <Warning />
       </div>
     );
   }
