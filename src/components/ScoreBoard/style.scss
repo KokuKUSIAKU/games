@@ -13,6 +13,9 @@ $border-double: 5px double $base-color;
     display: flex;
     flex-wrap: nowrap;
 
+    @media screen and (max-width:765px ){
+      justify-content: center;
+    }
     .player-board{
       display: flex;
       background-color:rgb(221,221,221);

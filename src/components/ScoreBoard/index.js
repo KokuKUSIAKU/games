@@ -9,7 +9,7 @@ import style from "./style.scss";
 
 var ScoreBoard = ({ players }) => (
   <article id="score-board" className="container">
-    <div className="row no-gutters">
+    <div className="row no-gutters justify-content-center">
       <section id="score-first" className="col-md-6">
         <div className="player-board">
           <PlayerName {...players[0]} />
