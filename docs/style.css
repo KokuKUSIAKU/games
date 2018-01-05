@@ -26,6 +26,9 @@
   #score-board #score-first, #score-board #score-second {
     display: flex;
     flex-wrap: nowrap; }
+    @media screen and (max-width: 765px) {
+      #score-board #score-first, #score-board #score-second {
+        justify-content: center; } }
     #score-board #score-first .player-board, #score-board #score-second .player-board {
       display: flex;
       background-color: #dddddd;
@@ -61,6 +64,11 @@
   display: flex; }
 
 #game {
+  background-image: repeating-linear-gradient(-45deg, rgba(2, 14, 73, 0.9) 0, rgba(2, 14, 73, 0.9) 25px, rgba(1, 13, 73, 0.5) 25px, rgba(2, 14, 73, 0.5) 50px);
+  border: 6px solid #3d2b1f;
+  border-radius: 25px;
+  box-sizing: content-box;
+  padding: 15px;
   display: flex;
   flex-direction: column;
   margin: 25px auto; }
@@ -82,6 +90,9 @@
         width: 50px;
         height: 50px;
         list-style: none; }
+        #game .cards .card-list li .game-button {
+          background: none;
+          border: 1.5px solid #8d8d8d; }
 #party-layout {
   width: 100%; }
 #ticdom-logo {
@@ -91,7 +102,7 @@
   #ticdom-logo .logo {
     color: inherit; }
   #ticdom-logo .dom {
-    color: darkblue; }
+    color: #020e49; }
 #header-tags {
   display: flex;
   font-size: 1.5rem;
